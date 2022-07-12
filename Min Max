@@ -1,0 +1,17 @@
+function miniMaxSum(arr) {
+    const minMax = []
+   let previousIndex = 0 ;
+
+
+arr.forEach(number => {
+  const sum = arr.filter((currentNumber, key) =>  key!= previousIndex).reduce(
+  (previousValue, currentValue) => previousValue + currentValue,
+  0
+  )
+  minMax.push(sum);
+  previousIndex++;
+})
+
+var minMaxNumb = Math.min(...minMax) + ' ' +  Math.max(...minMax);
+console.log(minMaxNumb)
+}
