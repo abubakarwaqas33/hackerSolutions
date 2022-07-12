@@ -1,0 +1,41 @@
+/*
+# Maria plays n games of college basketball in a season. Because 
+# she wants to go pro, she tracks her points scored per game 
+# sequentially in an array defined as score = [s0, s1, ..., sn-1]. 
+# After each game i, she checks to see if score Si breaks her record 
+# for most or least points scored so far during that season.
+
+# Given Maria's array of scores for a season of n games, find and print 
+# the number of times she breaks her record for most and least points 
+# scored during the season.
+
+# Note: Assume her records for most and least points at the start of the 
+# season are the number of points scored during the first game of the season.
+
+# Developer: Murillo Grubler
+# Link: https://www.hackerrank.com/challenges/breaking-best-and-worst-records
+
+*/
+
+
+
+function breakingRecords(scores) {
+   let minPoint = 0, maxPoint = 0;
+   let minNum = scores[0];
+   let maxNum = scores [0];
+   
+   for(let i= 1; i < scores.length; i++) {
+            if( scores[i] < minNum) {
+              minPoint++;
+           minNum = scores[i];
+       }
+       
+        if(scores[i] > maxNum) {
+              maxPoint++;
+           maxNum = scores[i];
+       }
+       
+   }
+        
+    return [maxPoint, minPoint];
+}
