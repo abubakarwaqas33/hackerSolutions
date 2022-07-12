@@ -1,0 +1,15 @@
+function lonelyinteger(a) {
+          let uniqueElem;
+      let obj = {}
+      a.forEach((elem, index) => {
+                  if(obj[elem]) {
+                    obj[elem]++
+            } else {
+                obj[elem] = 1
+            }
+      })
+      
+     const num =  Object.keys(obj).filter(item => obj[item] === 1)[0]
+      return +num
+}
+
