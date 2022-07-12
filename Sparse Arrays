@@ -1,0 +1,32 @@
+function matchingStrings(strings, queries) {
+     const n = strings.length;
+     const q = queries.length;
+     let stringOccurence = {}
+     let results = []
+     
+     strings.forEach((str, index) => {
+     				if(stringOccurence[str]) {
+            	stringOccurence[str]++
+            } else 
+              stringOccurence[str] = 1;
+     })
+     
+        queries.forEach((str, index) => {
+     				if(stringOccurence[str]) {
+            	results[index] = stringOccurence[str]
+            } else 
+            	results[index] = 0;
+     })
+    
+     return results
+}
+
+
+/* TEST CODE
+const str = ['aba', 'baba', 'aba', 'xzxb'];
+const query = ['aba', 'xzxb', 'ab',]
+
+console.log(
+matchingStrings(str, query)
+)
+*/
