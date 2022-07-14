@@ -1,0 +1,33 @@
+/**
+ * marsExploration - return defective pattern
+ * @param { String } s - input string
+ * @returns { Numbe r}
+ */
+
+function marsExploration(s) {
+  /**
+   * Regular expression split string into 3 parts
+   */
+  const regx = /.{1,3}/g;
+  const words = s.match(regx);
+  const matchStrPattern = "SOS";
+  /**
+   * Count defective text
+   * @type { Number }
+   */
+  let countDefectiveMessage = 0;
+
+  for (let i = 0; i < words.length; i++) {
+    let counter = 0;
+    let word = words[i];
+    /**
+     * Match String and check pattern via loop
+     * @type { While }
+     */
+    while (counter < matchStrPattern.length) {
+      word[counter] !== matchStrPattern[counter] && countDefectiveMessage++;
+      counter++;
+    }
+  }
+  return countDefectiveMessage;
+}
