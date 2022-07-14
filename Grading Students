@@ -1,0 +1,55 @@
+/**
+ * isMultipleOfFive - Check is multiple of five or not
+ * @param {Number} grade - number to check multiple of five
+ * @returns {Boolean}
+ */
+
+function isMultipleOfFive(grade) {
+  return grade % 5 === 0;
+}
+
+/**
+ * Represents Students grading
+ *  @param{Array<number>} grades - Student grades
+ * @returns {Array}
+ */
+
+function gradingStudents(grades) {
+  /**
+   * Store Rounding grades
+   * @type{Array<number>}
+   */
+  let gradesAfterRounding = [];
+
+  /**
+   * Iterate inputs grades
+   */
+
+  grades.forEach((grade) => {
+    /**
+     * grade < 38 - means no rounding if less than 38
+     * grade % 5 === 0 - already multiple of 5 no need of rounding
+     * else - Round of grade till not round
+     */
+    if (grade < 38) {
+      gradesAfterRounding.push(grade);
+    } else if (isMultipleOfFive(grade)) {
+      gradesAfterRounding.push(grade);
+    } else {
+      /**
+       * Store inputGrade grade separate
+       * Difference of grade - inputGrade < 3 = No rounding
+       */
+      let inputGrade = grade;
+      while (!isMultipleOfFive(grade)) {
+        grade++;
+        if (isMultipleOfFive(grade)) {
+          grade - inputGrade < 3
+            ? gradesAfterRounding.push(grade)
+            : gradesAfterRounding.push(inputGrade);
+        }
+      }
+    }
+  });
+  return gradesAfterRounding;
+}
