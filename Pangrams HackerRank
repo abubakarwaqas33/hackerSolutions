@@ -1,0 +1,23 @@
+/**
+ * marsExploration - return defective pattern
+ * @param { String } s - input string
+ * @returns {String} Pangram or Not Pangram
+ */
+
+function pangrams(s) {
+  /**
+   * Regular expression extracts characters
+   * @return {Array<string>}
+   */
+  const chars = s.match(/\w/g).join("").toLowerCase().split("");
+
+  /**
+   * Get Unique characters
+   * @return {Array<string>}
+   * You can use new Set to get unique chars instead of (filter, index) functions
+   */
+  const unique = chars.filter((char, index, self) => {
+    return self.indexOf(char) === index;
+  }); 
+  return unique.length === 26 ? "pangram" : "not pangram";
+}
