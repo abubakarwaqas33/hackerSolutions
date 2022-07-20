@@ -1,0 +1,65 @@
+/**
+ * diagonalDifference - return absolute difference of Multi Dimension array
+ * @param {Array<Number>}
+ * @returns {Number}
+ */
+
+function diagonalDifference(arr) {
+  /**
+   * primaryDiagnol- calculate diagnols
+   * @type {Number}
+   */
+  let primaryDiagnol = 0;
+
+  /**
+   * secondaryDiagnol- calculate diagnols from right
+   * @type {Number}
+   */
+  let secondaryDiagnol = 0;
+  const length = arr.length;
+
+  for (let i = 0; i < length; i++) {
+    for (let j = 0; j < length; j++) {
+      /**
+       * i == j - calculate diagnols values
+       * When i=0 and j=0 (i==j) then get first value of index
+       * When i=1 and j=1 (i==j) then get second value of index
+       * When i=2 and j=2 (i==j) then get last value of index
+       * @type {Number}
+       */
+      if (i === j) {
+        primaryDiagnol += arr[i][j];
+      }
+
+      /**
+       * i == j - calculate diagnols values
+       * When i,j (i+j < arr.length -1) then get last value of index
+       * Whenever J will end then get last values from right side
+       * @type {Number}
+       */
+      if (i + j == length - 1) {
+        secondaryDiagnol += arr[i][j];
+      }
+    }
+  }
+  /**
+   * Math.abs - return absolute difference of diagnols
+   */
+  return Math.abs(primaryDiagnol - secondaryDiagnol);
+}
+
+/**
+ * Sample Input
+ */
+let diagnols = [
+  [11, 2, 4],
+  [4, 5, 6],
+  [10, 8, -12],
+];
+
+const result = diagonalDifference(diagnols);
+
+/**
+ * Sample Output
+ */
+console.log(result);
