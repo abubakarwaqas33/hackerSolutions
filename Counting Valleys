@@ -1,0 +1,34 @@
+/**
+ * countingValleys - return Hiker Valleys crossed count
+ * @param {String, Number}
+ * @returns {Number} valleysCross integer
+ */
+
+function countingValleys(steps, path) {
+  /**
+   * valleyCounter - find path of sealevel
+   * @type {Number}
+   */
+  let valleyCounter = 0;
+
+  /**
+   * valleysCross - Count hiker valley crossed
+   * @type {Number}
+   */
+  let valleysCross = 0;
+  for (let i = 0; i < steps; i++) {
+    if (path[i] == "U") {
+      valleyCounter++;
+    } else valleyCounter--;
+
+    /**
+     * valleysCross - Increment hikers valley count if reached at sea level
+     */
+    if (valleyCounter == 0 && path[i] == "U") valleysCross++;
+  }
+  return valleysCross;
+}
+
+
+const result = countingValleys(12, "DDUUDDUDUUUD");
+console.log(result);
