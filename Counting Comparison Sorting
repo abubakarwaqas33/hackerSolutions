@@ -1,0 +1,21 @@
+/**
+ * countingSort - return counting values upto frequency 100
+ * @param {Array<Number>} array - array of numbers
+ * @returns {Number} counting array
+ */
+
+function countingSort(array) {
+  /**
+   * Fill array values with 0
+   * Range upto 100
+   * @type {Array<Number>}
+   */
+  const arr = new Array(100).fill(0);
+  for (let value of array) {
+    /**
+     * Store values into array of index
+     */
+    arr[value]++;
+  }
+  return arr;
+}
