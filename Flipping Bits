@@ -1,0 +1,10 @@
+/**
+ * flippingBits - invert bits 
+ * @param { Number } n - input string
+ * ~ Invert all bits and >>> add 0 in right most bit
+ * @returns {Number} Unsigned integer
+ */
+
+function flippingBits(n) {
+  return ~n >>> 0;
+}
