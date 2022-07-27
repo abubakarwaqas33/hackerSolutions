@@ -1,0 +1,8 @@
+function factorial(n) {
+    if(n <= 1) 
+      return n;
+    return  (n -1) + (n - 2)
+}
+
+let result = factorial(7)
+console.log(result)
