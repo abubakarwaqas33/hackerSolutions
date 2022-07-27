@@ -1,0 +1,9 @@
+function sumTo(n) {
+    if(n < 1 || n == 1) 
+      return n;
+    return  n + sumTo(n-1)
+}
+
+let result = sumTo(100)
+console.log(result)
+
